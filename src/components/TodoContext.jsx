@@ -10,21 +10,13 @@ function reducer(state, action) {
     case 'toggle':
       return state.map(p => p.date === action.payload.date ? { ...p, todos: p.todos.map(q => q.id / 1 === action.payload.id / 1 ? { ...q, isComplate: !q.isComplate } : q) } : p);
     case 'load':
-      return action.payload.data;
+      return action.payload.data.length>0 ? Object.keys(action.payload.data[0]).length===3 ? action.payload.data : state : state;
     default:
       return state;
   }
 }
 
-const first_state = [{
-  id: Date.now(),
-  date: '2023. 8. 12.',
-  todos: [{
-    id: Date.now() + 10,
-    text: '숨쉬기',
-    isComplate: true
-  }]
-}];
+const first_state = [];
 
 
 export const TodoContext = createContext();

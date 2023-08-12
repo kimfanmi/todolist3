@@ -76,7 +76,7 @@ const TodoHeader = () => {
     div.appendChild(document.createElement('br'));
 
     let button = document.createElement('button');
-    button.innerText = 'OK';
+    button.innerText = 'Load';
     div.appendChild(button);
     button.style.position = 'absolute';
     button.style.bottom = '5px';
@@ -87,7 +87,7 @@ const TodoHeader = () => {
       let data;
       try {
         data = JSON.parse(textarea.value);
-        ct.dispatch({ type: 'load', payload: { data: data } })
+        ct.dispatch({ type: 'load', payload: { data } })
       } catch { }
       div.remove();
     }
