@@ -69,7 +69,6 @@ const TodoHeader = () => {
     div.id = 'modal';
 
     let textarea = document.createElement('textarea');
-    textarea.value = JSON.stringify(ct.state);
     textarea.style.width = '349px';
     textarea.style.height = '163px';
 
@@ -85,16 +84,19 @@ const TodoHeader = () => {
     button.style.fontSize = '1.5rem';
     button.style.padding = '2px 5px';
     button.onclick = (e) => {
-      let data = JSON.parse(textarea.value);
-      ct.dispatch({type: 'load', payload: {data: data} })
+      let data;
+      try {
+        data = JSON.parse(textarea.value);
+        ct.dispatch({ type: 'load', payload: { data: data } })
+      } catch { }
       div.remove();
     }
-    
+
 
     document.querySelector('#modal') ? document.querySelector('#modal').replaceWith(div) :
       document.querySelector('#root').appendChild(div);
     textarea.select();
-   };
+  };
   return (
     <div className='todoheader'>
       <div className='vhewdatebox'>{setDate(ct.viewDate)[0]}</div>
