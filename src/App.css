@@ -1,38 +1,140 @@
-.App {
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: #ccc;
+}
+
+.contentbox {
+  width: 450px;
+  background: #fff;
+  height: 700px;
+  margin: 0 auto;
+  margin-top: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.todoheader {
+  width: 100%;
+  height: 150px;
+  background: #cec;
+  position: relative;
+}
+
+.todoheader .vhewdatebox {
+  position: absolute;
+  top: 35px;
+  font-size: 2.2rem;
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todoheader .vhewdatebox2 {
+  position: absolute;
+  right: 95px;
+  bottom: 20px;
+  font-size: 1.7rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todoheader .todoheaderbtn {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 45px
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todoheader .todoheaderbtn.btnleft {
+  left: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.todoheader .todoheaderbtn.btnright {
+  right: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todoheader .savebtn,.todoheader .loadbtn {
+  height: 25px;
+  font-size: 1.2rem;
+}
+.todoheader .savebtn {
+  margin-left: 10px;
+}
+
+
+.todobody {
+  width: 100%;
+  height: 550px;
+  background: #ecc;
+  position: relative;
+}
+
+.todobody ul {
+  position: relative;
+  width: calc(100% - 50px);
+  top: 30px;
+  left: 50px;
+  font-size: 2rem;
+  list-style: none;
+  height: 450px;
+  overflow: auto;
+}
+
+.todobody ul li {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  width: 90%;
+  user-select: none;
+}
+
+.todobody ul li button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: none;
+}
+
+.todobody ul li:hover button {
+  display: block;
+}
+
+.inputbox {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 160px;
+  background: yellowgreen;
+  display: none;
+}
+
+.inputbox input {
+  font-size: 2rem;
+  position: absolute;
+  top: 30px;
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.inputbox button {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.inputboxtogglebtn {
+  width: 80px;
+  height: 80px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 7rem;
+  background: #f00;
+  position: absolute;
+  top: 780px;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: all 0.2s;
+  user-select: none;
 }
